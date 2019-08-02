@@ -252,7 +252,7 @@ const crawl = async opt => {
         }
         afterFetch && (await afterFetch({ page, route, browser, addToQueue }));
         await page.close();
-        console.log(`✅  crawled ${processed + 1} out of ${enqued} (${route})`);
+        console.log(`✅  crawleded ${processed + 1} out of ${enqued} (${route})`);
       } catch (e) {
         if (!shuttingDown) {
           console.log(`🔥  error at ${route}`, e);
