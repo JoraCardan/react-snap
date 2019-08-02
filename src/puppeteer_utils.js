@@ -90,7 +90,7 @@ const enableLogging = opt => {
         route = response._request
           .headers()
           .referer.replace(`http://localhost:${options.port}`, "");
-      } catch (e) {}
+      } catch (e) { }
       console.log(
         `️️️⚠️  warning at ${route}: got ${response.status()} HTTP code for ${response.url()}`
       );
@@ -238,7 +238,7 @@ const crawl = async opt => {
         await page.setUserAgent(options.userAgent);
         const tracker = createTracker(page);
         try {
-          await page.goto(pageUrl, { waitUntil: "networkidle0" });
+          await page.goto(pageUrl, { waitUntil: "load" });
         } catch (e) {
           e.message = augmentTimeoutError(e.message, tracker);
           throw e;
